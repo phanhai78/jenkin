@@ -17,6 +17,11 @@ docker run --name jenkins-blueocean --restart=on-failure --detach `
 
 lay pass
 docker exec jenkins-blueocean cat /var/jenkins_home/secrets/initialAdminPassword
+tao vung chua cua docker 
+docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+
+layid cua vung chua
+docker inspect <container_id> | grep IPAddress
 
 truy cap
 https://localhost:8080/
